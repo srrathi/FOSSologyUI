@@ -1,5 +1,5 @@
-/*
- Copyright (C) 2021 Aman Dwivedi (aman.dwivedi5@gmail.com)
+/***************************************************************
+ Copyright (C) 2021 Shruti Agarwal (mail2shruti.ag@gmail.com)
 
  SPDX-License-Identifier: GPL-2.0
 
@@ -14,29 +14,12 @@
  You should have received a copy of the GNU General Public License along
  with this program; if not, write to the Free Software Foundation, Inc.,
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
+***************************************************************/
 
-import sendRequest from "./sendRequest";
-import { endpoints } from "../constants/endpoints";
-import {
-  tokenNameLength,
-  tokenScope,
-  tokenExpiryDays,
-} from "../constants/auth";
-import { randomString, getDate } from "../shared/helper";
+import React from "react";
 
-export const fetchTokenApi = (username, password) => {
-  const url = endpoints.auth.tokens();
-  return sendRequest({
-    url,
-    method: "POST",
-    credentials: false,
-    body: {
-      username,
-      password,
-      token_name: randomString(tokenNameLength),
-      token_scope: tokenScope,
-      token_expire: getDate(tokenExpiryDays),
-    },
-  });
+const UploadDeleteFolder = () => {
+  return <div>Upload Delete Folder</div>;
 };
+
+export default UploadDeleteFolder;
