@@ -18,7 +18,7 @@
 
 // React imports
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 // Guards imports
 import PublicLayout from "./shared/PublicLayout";
@@ -55,6 +55,9 @@ const Routes = () => {
         />
         <PrivateLayout exact path={routes.search} component={Search} />
         <PrivateLayout exact path={routes.browse} component={Browse} />
+        <Route path="*">
+          <Redirect to={routes.home} />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
