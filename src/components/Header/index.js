@@ -16,7 +16,7 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
 import { QuestionCircleFill, PersonCircle } from "react-bootstrap-icons";
@@ -26,8 +26,11 @@ import { routes } from "../../constants/routes";
 import { logout, isAuth } from "../../shared/authHelper";
 import logo from "../../assets/images/logo.svg";
 import { externalLinks } from "../../constants/externalLinks";
+import { GlobalContext } from "../../context";
 
 const Header = () => {
+  const { setTheme } = useContext(GlobalContext);
+
   const history = useHistory();
 
   const handleLogout = () => {
@@ -158,10 +161,24 @@ const Header = () => {
             {isAuth() ? (
               <Dropdown.Menu>
                 <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item onClick={() => setTheme("light")}>
+                  Light Theme
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setTheme("dark")}>
+                  Dark Theme
+                </Dropdown.Item>
               </Dropdown.Menu>
             ) : (
               <Dropdown.Menu>
                 <Dropdown.Item onClick={handleLogin}>Log in</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item onClick={() => setTheme("light")}>
+                  Light Theme
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setTheme("dark")}>
+                  Dark Theme
+                </Dropdown.Item>
               </Dropdown.Menu>
             )}
           </Dropdown>
