@@ -33,6 +33,7 @@ import Overview from "./pages/Help/Overview";
 import LicenseBrowser from "./pages/Help/LicenseBrowser";
 import Instructions from "./pages/Upload/Instructions";
 import About from "./pages/Help/About";
+import ImportReport from "./pages/Upload/ImportReport";
 
 // Routes imports
 import { routes } from "./constants/routes";
@@ -57,6 +58,11 @@ const Routes = () => {
         <PublicLayout exact path={routes.help.about} component={About} />
         <PrivateLayout exact path={routes.search} component={Search} />
         <PrivateLayout exact path={routes.browse} component={Browse} />
+        <PrivateLayout
+          exact
+          path={routes.upload.report}
+          component={ImportReport}
+        />
       </Switch>
     </BrowserRouter>
   );
